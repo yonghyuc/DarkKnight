@@ -7,14 +7,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from nets.network import Network
-from model.config import cfg
+import app.nets.Network as Network
 
-import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from torch.autograd import Variable
-import math
 import torchvision.models as models
 
 

@@ -7,16 +7,10 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from nets.network import Network
-from model.config import cfg
+from app.nets.network import Network
+from app.model.config import cfg
 
-import utils.timer
-
-import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from torch.autograd import Variable
-import math
 import torch.utils.model_zoo as model_zoo
 
 import torchvision

@@ -14,14 +14,13 @@ try:
 except ImportError:
     import pickle
 import os
-import math
 
-from utils.timer import Timer
+from app.utils.timer import Timer
 from torchvision.ops import nms
-from utils.blob import im_list_to_blob
+from app.utils.blob import im_list_to_blob
 
-from model.config import cfg, get_output_dir
-from model.bbox_transform import clip_boxes, bbox_transform_inv
+from app.model.config import cfg, get_output_dir
+from app.model.bbox_transform import bbox_transform_inv
 
 import torch
 

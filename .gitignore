@@ -10,3 +10,4 @@ lib/pycocotools/_mask.so
 lib/faster_rcnn.egg-info
 .idea
 data
+app/resources

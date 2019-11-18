@@ -7,9 +7,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import numpy as np
-from model.config import cfg
-from model.bbox_transform import bbox_transform_inv, clip_boxes
+from app.model.config import cfg
+from app.model.bbox_transform import bbox_transform_inv, clip_boxes
 from torchvision.ops import nms
 
 import torch

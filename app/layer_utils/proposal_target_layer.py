@@ -10,9 +10,9 @@ from __future__ import print_function
 
 import numpy as np
 import numpy.random as npr
-from model.config import cfg
-from model.bbox_transform import bbox_transform
-from utils.bbox import bbox_overlaps
+from app.model.config import cfg
+from app.model import bbox_transform
+from app.utils.bbox import bbox_overlaps
 
 import torch
 

@@ -8,7 +8,7 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
-from layer_utils.generate_anchors import generate_anchors
+from app.layer_utils.generate_anchors import generate_anchors
 
 
 def generate_anchors_pre(height,

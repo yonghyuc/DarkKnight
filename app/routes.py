@@ -1,9 +1,9 @@
 import os
 from collections import defaultdict
 
-from flask import render_template
+from flask import render_template, request, jsonify
 from flask_socketio import emit
-from .model.model.config import cfg
+from . import detector
 
 from app import app
 
@@ -14,6 +14,8 @@ def index():
     return "HELLO WORLD!"
 
 
-@app.route("/analyze")
+@app.route("/analyze", methods=["POST"])
 def analyze():
-    return cfg.DATA_DIR
+    output = detector.get_boxes(request.data)
+    print (output)
+    return jsonify(output)

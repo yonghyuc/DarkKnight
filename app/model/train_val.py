@@ -9,21 +9,19 @@ from __future__ import print_function
 
 import tensorboardX as tb
 
-from model.config import cfg
-import roi_data_layer.roidb as rdl_roidb
-from roi_data_layer.layer import RoIDataLayer
-import utils.timer
+from app.model.config import cfg
+import app.roi_data_layer.roidb as rdl_roidb
+from app.roi_data_layer.layer import RoIDataLayer
+import app.utils.timer
 try:
     import cPickle as pickle
 except ImportError:
     import pickle
 
 import torch
-import torch.optim as optim
 
 import numpy as np
 import os
-import sys
 import glob
 import time
 
@@ -275,7 +273,7 @@ class SolverWrapper(object):
                 scale_lr(self.optimizer, cfg.TRAIN.GAMMA)
                 next_stepsize = stepsizes.pop()
 
-            utils.timer.timer.tic()
+            app.utils.timer.timer.tic()
             # Get training data, one batch at a time
             blobs = self.data_layer.forward()
 
@@ -296,7 +294,7 @@ class SolverWrapper(object):
                 # Compute the graph without summary
                 rpn_loss_cls, rpn_loss_box, loss_cls, loss_box, total_loss = \
                   self.net.train_step(blobs, self.optimizer)
-            utils.timer.timer.toc()
+            app.utils.timer.timer.toc()
 
             # Display training information
             if iter % (cfg.TRAIN.DISPLAY) == 0:
@@ -304,7 +302,7 @@ class SolverWrapper(object):
                       '>>> rpn_loss_box: %.6f\n >>> loss_cls: %.6f\n >>> loss_box: %.6f\n >>> lr: %f' % \
                       (iter, max_iters, total_loss, rpn_loss_cls, rpn_loss_box, loss_cls, loss_box, lr))
                 print('speed: {:.3f}s / iter'.format(
-                    utils.timer.timer.average_time()))
+                    app.utils.timer.timer.average_time()))
 
                 # for k in utils.timer.timer._average_time.keys():
                 #   print(k, utils.timer.timer.average_time(k))
